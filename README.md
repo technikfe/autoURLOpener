@@ -11,3 +11,7 @@ Known issues:
 Don't put something without an exclamation mark into the file between 2 (or more) urls/paths
 
 The https stuff is required
+
+Other things: 
+
+You may need to install .net
