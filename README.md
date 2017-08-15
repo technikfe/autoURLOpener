@@ -15,3 +15,5 @@ The https stuff is required
 Other things: 
 
 You may need to install .net
+
+All the files like Output or 6d 61 72 69 61 have to be in the same directory (it's name doesn't matter)
