@@ -9,3 +9,5 @@ file with an exclamation mark at the start of a line (as shown in the file)
 Known issues:
 
 Don't put something without an exclamation mark into the file between 2 (or more) urls/paths
+
+The https stuff is required
