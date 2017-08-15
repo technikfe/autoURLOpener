@@ -1,0 +1,81 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+
+
+
+namespace ConsoleApp8
+{
+    class Program
+    {
+        //vars
+        static List<string> path = new List<string>();
+        static StreamWriter sw = new StreamWriter("Output.txt", true);
+        static string version = "1.0    14.8.2017";
+
+        static void Main(string[] args)
+        {
+            //comment
+            try
+            {
+                using (StreamReader sr = new StreamReader("6d 61 72 69 61.txt"))
+                {
+                    string line;
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (line.IndexOf("!") == 0)
+                        {
+                            //Console.WriteLine("succes");
+                            line = line.Substring(1);
+                            path.Add(line);
+
+                        }
+                        /*else
+                        {
+                            Console.WriteLine("failure");
+                        }*/
+                    }
+                }
+
+                path.ToArray();
+                //Console.WriteLine(path[0]);
+                foreach (string item in path)
+                {
+                    System.Diagnostics.Process.Start(item);
+
+
+                }
+
+               
+
+                //Console.ReadLine();
+            }
+            catch(FileNotFoundException e)
+            {
+                intro();
+                sw.Write("Are you sure that the file 6d 61 72 69 61.txt exists and is named the said name? \n are you sure that it is in the same directory as the .exe file?" + "\n");
+                sw.Write(e.Message);
+                sw.Close();
+            }
+            catch (Exception e)
+            {
+                intro();
+                sw.Write("An error that was largely unaccounted for occured, please provide the developer with your precious feedback. So others don have to see this ugly message \n");
+                sw.Write("Error message: " + e.Message);
+            }
+
+        }
+
+        static void intro()
+        {
+            sw.Write("\n" + DateTime.Now + "\n");
+            sw.Write("version: " + version + "\n");
+        }
+    }
+}
